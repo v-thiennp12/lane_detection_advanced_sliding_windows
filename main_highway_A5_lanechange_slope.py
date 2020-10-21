@@ -89,148 +89,18 @@ frame_mix_RGB_origin_Lane_verbose       = lanefinding.apply_pipeline(frame_RGB_o
 frame_show(frame_mix_RGB_origin_Lane_verbose, title = 'frame_mix_RGB_origin_Lane_verbose')
 frame_RGB_save(frame_mix_RGB_origin_Lane_verbose, 'images_output/frame_highway_A5_lanechange_slope_2_0x339_output.jpg')
 
+# # video processing
+os.listdir("videos_test/")
+video_load              = VideoFileClip("videos_test/highway_A5_lanechange.mov")
+#Process loaded video
+lanefinding             = pipeline_lanefinding(param_preprocessing_1st, param_preprocessing_2nd, points_ZoI, points_birdeye_transform, param_curve_class, cam_calibration_file)
+video_processed         = video_load.fl_image(lanefinding.apply_pipeline) #NOTE: this function expects color images!!
 
+#Write output video
+video_output            = 'videos_output/highway_A5_lanechange_new_output.mp4'
+# %time
+video_processed.write_videofile(video_output, audio=True, logger='bar', verbose=True)
 
-# # single frame processing
-# frame_filepath                          = 'images_test/frame_highway_A5_lanechange_slope_3_0x628.jpg'
-# frame_filename                          = 'frame_highway_A5_lanechange_slope_3_0x628.jpg'
-# frame_RGB_origin                        = frame_RGB_read(frame_filepath)            
-# lanefinding                             = pipeline_lanefinding(param_preprocessing_1st, param_preprocessing_2nd, points_ZoI, points_birdeye_transform, param_curve_class, cam_calibration_file)
-# frame_mix_RGB_origin_Lane_verbose       = lanefinding.apply_pipeline(frame_RGB_origin)
-
-# frame_show(frame_mix_RGB_origin_Lane_verbose, title = 'frame_mix_RGB_origin_Lane_verbose')
-# frame_RGB_save(frame_mix_RGB_origin_Lane_verbose, 'images_output/frame_highway_A5_lanechange_slope_3_0x628_output.jpg')
-
-# # single frame processing
-# frame_filepath                          = 'images_test/frame_highway_A5_lanechange_slope_1_7x595.jpg'
-# frame_filename                          = 'frame_highway_A5_lanechange_slope_1_7x595.jpg'
-# frame_RGB_origin                        = frame_RGB_read(frame_filepath)            
-# lanefinding                             = pipeline_lanefinding(param_preprocessing_1st, param_preprocessing_2nd, points_ZoI, points_birdeye_transform, param_curve_class, cam_calibration_file)
-# frame_mix_RGB_origin_Lane_verbose       = lanefinding.apply_pipeline(frame_RGB_origin)
-
-# frame_show(frame_mix_RGB_origin_Lane_verbose, title = 'frame_mix_RGB_origin_Lane_verbose')
-# frame_RGB_save(frame_mix_RGB_origin_Lane_verbose, 'images_output/frame_highway_A5_lanechange_slope_1_7x595_output.jpg')
-
-# # single frame processing
-# frame_filepath                          = 'images_test/frame_highway_A5_lanechange_slope_1_10x651.jpg'
-# frame_filename                          = 'frame_highway_A5_lanechange_slope_1_10x651.jpg'
-# frame_RGB_origin                        = frame_RGB_read(frame_filepath)            
-# lanefinding                             = pipeline_lanefinding(param_preprocessing_1st, param_preprocessing_2nd, points_ZoI, points_birdeye_transform, param_curve_class, cam_calibration_file)
-# frame_mix_RGB_origin_Lane_verbose       = lanefinding.apply_pipeline(frame_RGB_origin)
-
-# frame_show(frame_mix_RGB_origin_Lane_verbose, title = 'frame_mix_RGB_origin_Lane_verbose')
-# frame_RGB_save(frame_mix_RGB_origin_Lane_verbose, 'images_output/frame_highway_A5_lanechange_slope_1_10x651_output.jpg')
-
-
-
-# # # video processing
-# os.listdir("videos_test/")
-# video_load              = VideoFileClip("videos_test/highway_A5_lanechange.mov")
-# #Process loaded video
-# lanefinding             = pipeline_lanefinding(param_preprocessing_1st, param_preprocessing_2nd, points_ZoI, points_birdeye_transform, param_curve_class, cam_calibration_file)
-# video_processed         = video_load.fl_image(lanefinding.apply_pipeline) #NOTE: this function expects color images!!
-
-# #Write output video
-# video_output            = 'videos_output/highway_A5_lanechange_new_output.mp4'
-# # %time
-# video_processed.write_videofile(video_output, audio=True, logger='bar', verbose=True)
-
-# # Display processed video
-# HTML("""
-# <video width="1280" height="720" controls> <source src="{0}"> </video>""".format(video_processed))
-
-
-
-
-# ## another video processing
-# os.listdir("videos_test/")
-# video_load              = VideoFileClip("videos_test/highway_A5_lanechange_slope.mov")
-# #Process loaded video
-# lanefinding             = pipeline_lanefinding(param_preprocessing_1st, param_preprocessing_2nd, points_ZoI, points_birdeye_transform, param_curve_class, cam_calibration_file)
-# video_processed         = video_load.fl_image(lanefinding.apply_pipeline) #NOTE: this function expects color images!!
-
-# #Write output video
-# video_output            = 'videos_output/highway_A5_lanechange_slope_output.mp4'
-# # %time
-# video_processed.write_videofile(video_output, audio=True, logger='bar', verbose=True)
-
-# # Display processed video
-# HTML("""<video width="1280" height="720" controls> <source src="{0}"> </video>""".format(video_processed))
-
-
-# ## another video processing
-# os.listdir("videos_test/")
-# video_load              = VideoFileClip("videos_test/drive_torvillier_80kmph.mov")
-# #Process loaded video
-# lanefinding             = pipeline_lanefinding(param_preprocessing_1st, param_preprocessing_2nd, points_ZoI, points_birdeye_transform, param_curve_class, cam_calibration_file)
-# video_processed         = video_load.fl_image(lanefinding.apply_pipeline) #NOTE: this function expects color images!!
-
-# #Write output video
-# video_output            = 'videos_output/drive_torvillier_80kmph_output.mp4'
-# # %time
-# video_processed.write_videofile(video_output, audio=True, logger='bar', verbose=True)
-
-# # Display processed video
-# HTML("""<video width="1280" height="720" controls> <source src="{0}"> </video>""".format(video_processed))
-
-
-
-# ## another video processing
-# os.listdir("videos_test/")
-# video_load              = VideoFileClip("videos_test/highway_A5_normal.mov")
-# #Process loaded video
-# lanefinding             = pipeline_lanefinding(param_preprocessing_1st, param_preprocessing_2nd, points_ZoI, points_birdeye_transform, param_curve_class, cam_calibration_file)
-# video_processed         = video_load.fl_image(lanefinding.apply_pipeline) #NOTE: this function expects color images!!
-
-# #Write output video
-# video_output            = 'videos_output/highway_A5_normal_output.mp4'
-# # %time
-# video_processed.write_videofile(video_output, audio=True, logger='bar', verbose=True)
-
-# # Display processed video
-# HTML("""<video width="1280" height="720" controls> <source src="{0}"> </video>""".format(video_processed))
-
-# # another video processing
-# os.listdir("videos_test/")
-# video_load              = VideoFileClip("videos_test/highway_A5_curve_slope.mov")
-# #Process loaded video
-# lanefinding             = pipeline_lanefinding(param_preprocessing_1st, param_preprocessing_2nd, points_ZoI, points_birdeye_transform, param_curve_class, cam_calibration_file)
-# video_processed         = video_load.fl_image(lanefinding.apply_pipeline) #NOTE: this function expects color images!!
-
-# #Write output video
-# video_output            = 'videos_output/highway_A5_curve_slope_output.mp4'
-# # %time
-# video_processed.write_videofile(video_output, audio=True, logger='bar', verbose=True)
-
-# # Display processed video
-# HTML("""<video width="1280" height="720" controls> <source src="{0}"> </video>""".format(video_processed))
-
-# # another video processing
-# os.listdir("videos_test/")
-# video_load              = VideoFileClip("videos_test/drive_barrier_torvillier.mov")
-# #Process loaded video
-# lanefinding             = pipeline_lanefinding(param_preprocessing_1st, param_preprocessing_2nd, points_ZoI, points_birdeye_transform, param_curve_class, cam_calibration_file)
-# video_processed         = video_load.fl_image(lanefinding.apply_pipeline) #NOTE: this function expects color images!!
-
-# #Write output video
-# video_output            = 'videos_output/drive_barrier_torvillier_output.mp4'
-# # %time
-# video_processed.write_videofile(video_output, audio=True, logger='bar', verbose=True)
-
-# # Display processed video
-# HTML("""<video width="1280" height="720" controls> <source src="{0}"> </video>""".format(video_processed))
-
-# ## another video processing
-# os.listdir("videos_test/")
-# video_load              = VideoFileClip("videos_test/highway_A5_multilane_multitarget.mov")
-# #Process loaded video
-# lanefinding             = pipeline_lanefinding(param_preprocessing_1st, param_preprocessing_2nd, points_ZoI, points_birdeye_transform, param_curve_class, cam_calibration_file)
-# video_processed         = video_load.fl_image(lanefinding.apply_pipeline) #NOTE: this function expects color images!!
-
-# #Write output video
-# video_output            = 'videos_output/highway_A5_multilane_multitarget_output.mp4'
-# # %time
-# video_processed.write_videofile(video_output, audio=True, logger='bar', verbose=True)
-
-# # Display processed video
-# HTML("""<video width="1280" height="720" controls> <source src="{0}"> </video>""".format(video_processed))
+# Display processed video
+HTML("""
+<video width="1280" height="720" controls> <source src="{0}"> </video>""".format(video_processed))
