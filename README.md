@@ -27,6 +27,9 @@ In this tutorial, basic and fundamental technics of computer vision are applied 
 https://github.com/nguyenrobot  
 https://www.nguyenrobot.com/  
 
+*Current github repos*  
+https://github.com/nguyenrobot/lane_detection_advanced_sliding_windows  
+
 *My previous tutorial on line-detection based on Canny Filter and Hough Transform*  
 https://github.com/nguyenrobot/line_detection_by_canny_gausian_hough_streamedvideo
 
