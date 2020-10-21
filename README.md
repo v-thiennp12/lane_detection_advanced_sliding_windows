@@ -98,6 +98,9 @@ The bird-eye view transform help us to have a sky-view from vehicle view taken f
 
 The bird-eye transform is simply linear stretching and compressing of input pixels. With a good tweaked bird-eye view transform, we should have lane's lines parallel in the end. This transform is also a source of error for line's curvature estimation bu we will discard these errors in this tutorial, enhancements should be done in a future tutorial.  
 
+>*Bird-eye transform, Image Credit : nguyenrobot &#8595;*  
+<img src="images_jupyter/bird_eye_transform.png" alt="Drawing" style="width: 600px;"/>
+
 ## 1.5 Gradient filter with Sobel Operator
 In my previous tutorial, we used Canny edge and Gaussian filter to detect edges. However, with Canny Edge we can not know if an edge is 'horizontal' or 'vertical'. In lane's lines detection, we would like to keep nearly vertical edges and eliminate those nearly horizontal.  
 
