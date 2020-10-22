@@ -68,6 +68,7 @@ Source : https://docs.opencv.org/2.4/modules/calib3d/doc/camera_calibration_and_
 The idea of Undistort function is to take series of photos of a chessboard taken by the camera. Then we will find chessboard's corners in each image and try to figure out distortion coefficients thanks to these corners' position.
 >*Image distorsion by S7's rear camera, Image Credit : nguyenrobot &#8595;*  
 <img src="images_jupyter/distortion_S7_chessboard.png" alt="Drawing" style="width: 650px;"/>
+Source of desktop background : ImageGlass's default background, a photo taken in Hoi An, Vietnam
 
 ## 1.3 Image preprocessing
 We can get inspired by photography post-processing to have a clean image before any computation :
